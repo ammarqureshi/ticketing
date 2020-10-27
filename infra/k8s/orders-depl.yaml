@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: orders
-          image: us.gcr.io/iconic-valve-291219/orders
+          image: mintedguy/orders
+          # image: us.gcr.io/iconic-valve-291219/orders
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

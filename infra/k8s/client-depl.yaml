@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: client
-          image: us.gcr.io/iconic-valve-291219/client
+          image: mintedguy/client
+          # image: us.gcr.io/iconic-valve-291219/client
 ---
 apiVersion: v1
 kind: Service

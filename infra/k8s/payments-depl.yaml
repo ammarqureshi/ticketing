@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: us.gcr.io/iconic-valve-291219/payments
+          image: mintedguy/payments
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
@@ -36,7 +36,6 @@ spec:
                 secretKeyRef:
                   name: stripe-secret
                   key: STRIPE_KEY
-
 ---
 apiVersion: v1
 kind: Service

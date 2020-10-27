@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: expiration
-          image: us.gcr.io/iconic-valve-291219/expiration
+          image: mintedguy/expiration
+          # image: us.gcr.io/iconic-valve-291219/expiration
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
