@@ -10,7 +10,7 @@ metadata:
 
 spec:
   rules:
-    - host: ticketing.dev
+    - host: ticket-me-now.xyz
       http:
         paths:
           - path: /api/payments/?(.*)
