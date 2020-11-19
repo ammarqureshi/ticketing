@@ -2,8 +2,23 @@
 
 www.ticket-me-now.xyz
 
-A ticketing app running on K8s cluster deployed to Digital Ocean(had free credits there :)) 
+A ticketing microservices app using the publssher-subscriber model architecture running on k8s cluster deployed on Digital Ocean(had free credits :))
+Authentication and authorization implemented with the ability for users to buy tickets that are on sale by other users. Stripe is integrated with the app(use test data). 
 
+## Functionality of the app: 
+* can signin/signup 
+* users can lsit a ticket for an event for sale
+* other users can purchse the tickets up for sale
+* any user can list tickets for sale and purchase tickets
+* when a user attemps to purchase a ticket, the ticket will be locked for 15 minutes to give enought time to enter their payment info(Stripe integrated for payment service)
+* while a ticket is locked, no other user is able to purchase the same ticket. After the 15 minutes, if the ticket has not been purchase, the ticket is released for someone else to purhcase. 
+* ticket prices can only be edited if they are not locked.
+
+
+# Development
+These are the routes that have been implemented:
+
+![routes](https://user-images.githubusercontent.com/17296281/99706182-9cd92380-2a92-11eb-97aa-17e382eb4ac3.png)
 
 
 
@@ -12,7 +27,12 @@ A ticketing app running on K8s cluster deployed to Digital Ocean(had free credit
 
 workflows/deploy-auth.yaml file takes care of the deployment. 
 
-Once the code is merged to master, the script will build the modules and push the images to docker hub. Once the images have been pushed to docker hub, we need to reach out to K8s clsuter and tell the Deployments in the cluster to use the new images pushed to Docker hub.
+Once the code is merged to master, the script will build the modules and push the images to docker hub. 
+
+![depl-plan](https://user-images.githubusercontent.com/17296281/99705898-42d85e00-2a92-11eb-8098-ff5c3f5e27c0.png)
+
+
+Once the images have been pushed to docker hub, we need to reach out to K8s clsuter and tell the Deployments in the cluster to use the new images pushed to Docker hub.
 With doctl running on the Github container, we will fetch the k8s context and feed it to kubectl which connects to the digital ocean cluster. 
 
 ![DGOCEAN-DEPL](https://user-images.githubusercontent.com/17296281/99703622-3b638580-2a8f-11eb-9001-2faed989188c.png)
