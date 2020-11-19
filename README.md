@@ -49,8 +49,19 @@ With doctl running on the Github container, we will fetch the k8s context and fe
 ##  Domain Name Configuration
 The load balancer has a digital IP assigned to it by digital ocean. This load balancer is directing traffic to our cluster. Have to buy a domain name and point it to the IP allocated by Digital Ocean.
 
+In infra/prod-k8s.yaml when configuring the load balancer, we have to specify the hostname: 
+
+```yaml
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: 'true'
+    service.beta.kubernetes.io/do-loadbalancer-hostname: 'www.ticket-me-now.xyz'
+```
 
 ![DO-CLUSTER](https://user-images.githubusercontent.com/17296281/99705356-854d6b00-2a91-11eb-92b8-69513f33eac6.jpg)
 
+configure www.ticket-me-now.xyz host to direct to the IP address of your k8s cluster. 
 ![DOMAIN](https://user-images.githubusercontent.com/17296281/99705630-e37a4e00-2a91-11eb-8904-3f63a7245395.png)
+
 
