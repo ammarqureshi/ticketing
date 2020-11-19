@@ -3,7 +3,7 @@
 Hosted on : www.ticket-me-now.xyz
 
 A ticketing microservices app using the publisher-subscriber model architecture running on k8s cluster deployed on Digital Ocean(had free credits :))
-Authentication and authorization implemented with the ability for users to buy tickets that are on sale by other users. Stripe is integrated with the app(use test data). 
+Authentication and authorization implemented with the ability for users to buy tickets that are on sale by other users. Stripe is integrated with the app(use test data - https://stripe.com/docs/testing). 
 
 ## Functionality of the app: 
 * can signin/signup - production grade authentication
